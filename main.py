@@ -1,8 +1,4 @@
-"""Print the first 10 prime numbers to the console.
-
-The primes printed are:
-2, 3, 5, 7, 11, 13, 17, 19, 23, 29
-"""
+"""Print the numbers from 101 to 120 to the console."""
 
 from __future__ import annotations
 
@@ -40,10 +36,15 @@ def first_n_primes(count: int) -> list[int]:
     return primes
 
 
+def print_range(start: int, end: int) -> None:
+    """Print integers from `start` to `end` inclusive, one per line."""
+    for number in range(start, end + 1):
+        print(number)
+
+
 def main() -> None:
-    """Print the first 10 prime numbers, one per line, to stdout, in descending order."""
-    for prime in reversed(first_n_primes(10)):
-        print(prime)
+    """Print the numbers from 101 to 120, one per line, to stdout."""
+    print_range(101, 120)
 
 
 if __name__ == "__main__":
