@@ -41,8 +41,8 @@ def first_n_primes(count: int) -> list[int]:
 
 
 def main() -> None:
-    """Print the first 10 prime numbers, one per line, to stdout."""
-    for prime in first_n_primes(10):
+    """Print the first 10 prime numbers, one per line, to stdout, in descending order."""
+    for prime in reversed(first_n_primes(10)):
         print(prime)
 
 

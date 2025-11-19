@@ -12,7 +12,7 @@ def test_first_n_primes_returns_first_10_primes() -> None:
 
 
 def test_main_prints_first_10_primes_to_stdout() -> None:
-    expected_lines = ["2", "3", "5", "7", "11", "13", "17", "19", "23", "29"]
+    expected_lines = ["29", "23", "19", "17", "13", "11", "7", "5", "3", "2"]
 
     buffer = StringIO()
     with redirect_stdout(buffer):
