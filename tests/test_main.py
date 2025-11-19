@@ -6,13 +6,13 @@ from io import StringIO
 import main
 
 
-def test_first_n_primes_returns_first_10_primes() -> None:
-    expected = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    assert main.first_n_primes(10) == expected
+def test_numbers_from_101_to_120_returns_correct_sequence() -> None:
+    expected = list(range(101, 121))
+    assert main.numbers_from_101_to_120() == expected
 
 
-def test_main_prints_first_10_primes_to_stdout() -> None:
-    expected_lines = ["29", "23", "19", "17", "13", "11", "7", "5", "3", "2"]
+def test_main_prints_numbers_from_101_to_120_to_stdout() -> None:
+    expected_lines = [str(n) for n in range(120, 100, -1)]
 
     buffer = StringIO()
     with redirect_stdout(buffer):

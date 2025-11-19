@@ -1,49 +1,22 @@
-"""Print the first 10 prime numbers to the console.
+"""Print the numbers from 101 to 120 to the console.
 
-The primes printed are:
-2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+The numbers printed are:
+101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
+111, 112, 113, 114, 115, 116, 117, 118, 119, 120
 """
 
 from __future__ import annotations
 
 
-def is_prime(n: int) -> bool:
-    """Return True if n is a prime number, False otherwise.
-
-    Uses a simple trial-division algorithm sufficient for the small
-    numbers required by this script.
-    """
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-
-    limit = int(n**0.5) + 1
-    for candidate in range(3, limit, 2):
-        if n % candidate == 0:
-            return False
-    return True
-
-
-def first_n_primes(count: int) -> list[int]:
-    """Return a list containing the first `count` prime numbers."""
-    primes: list[int] = []
-    candidate = 2
-
-    while len(primes) < count:
-        if is_prime(candidate):
-            primes.append(candidate)
-        candidate += 1
-
-    return primes
+def numbers_from_101_to_120() -> list[int]:
+    """Return a list of integers from 101 to 120 inclusive."""
+    return list(range(101, 121))
 
 
 def main() -> None:
-    """Print the first 10 prime numbers, one per line, to stdout, in descending order."""
-    for prime in reversed(first_n_primes(10)):
-        print(prime)
+    """Print the numbers from 101 to 120, one per line, to stdout, in descending order."""
+    for number in reversed(numbers_from_101_to_120()):
+        print(number)
 
 
 if __name__ == "__main__":
