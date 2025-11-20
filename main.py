@@ -1,4 +1,4 @@
-"""Print the numbers from 101 to 120 to the console."""
+"""Print the numbers from 201 to 220 to the console."""
 
 from __future__ import annotations
 
@@ -43,8 +43,8 @@ def print_range(start: int, end: int) -> None:
 
 
 def main() -> None:
-    """Print the numbers from 101 to 120, one per line, to stdout."""
-    print_range(101, 120)
+    """Print the numbers from 201 to 220, one per line, to stdout."""
+    print_range(201, 220)
 
 
 if __name__ == "__main__":
