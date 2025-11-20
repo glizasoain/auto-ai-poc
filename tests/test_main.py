@@ -11,8 +11,8 @@ def test_first_n_primes_returns_first_10_primes() -> None:
     assert main.first_n_primes(10) == expected
 
 
-def test_main_prints_numbers_101_to_120_to_stdout() -> None:
-    expected_lines = [str(n) for n in range(101, 121)]
+def test_main_prints_numbers_201_to_220_to_stdout() -> None:
+    expected_lines = [str(n) for n in range(201, 221)]
 
     buffer = StringIO()
     with redirect_stdout(buffer):
