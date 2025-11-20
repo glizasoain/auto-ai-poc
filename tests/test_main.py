@@ -13,6 +13,10 @@ def test_first_n_primes_removed_from_main_module() -> None:
     with pytest.raises(AttributeError):
         getattr(main, "first_n_primes")
 
+    # Also ensure is_prime helper is no longer present
+    with pytest.raises(AttributeError):
+        getattr(main, "is_prime")
+
 
 def test_main_prints_numbers_201_to_220_to_stdout() -> None:
     expected_lines = [str(n) for n in range(201, 221)]
