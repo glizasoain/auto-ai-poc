@@ -56,4 +56,3 @@ post_run:
 future_extensions:
   - metadata: Additional constraints (dependency boundaries, code owners) can be added under constraints[].
   - enforcement: Runner may parse this file programmatically to set read-only paths or default commands.
-
