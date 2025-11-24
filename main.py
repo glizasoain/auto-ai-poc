@@ -1,15 +1,35 @@
-"""Print the numbers from 2201 to 2220 in reverse order to the console."""
+"""Print the first 20 prime numbers to the console."""
 
-def print_range(start: int, end: int) -> None:
-    """Print integers from `start` to `end` inclusive, one per line."""
-    for number in range(start, end + 1):
-        print(number)
+from __future__ import annotations
+
+
+def _is_prime(n: int) -> bool:
+    """Return True if n is a prime number, False otherwise."""
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+
+    divisor = 3
+    while divisor * divisor <= n:
+        if n % divisor == 0:
+            return False
+        divisor += 2
+    return True
 
 
 def main() -> None:
-    """Print the numbers from 2201 to 2220 in reverse order, one per line, to stdout."""
-    for number in range(2220, 2200, -1):
-        print(number)
+    """Print the first 20 prime numbers, one per line, to stdout."""
+    count = 0
+    candidate = 2
+
+    while count < 20:
+        if _is_prime(candidate):
+            print(candidate)
+            count += 1
+        candidate += 1
 
 
 if __name__ == "__main__":
