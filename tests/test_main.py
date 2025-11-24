@@ -14,8 +14,8 @@ def test_first_n_primes_removed_from_main_module() -> None:
         getattr(main, "first_n_primes")
 
 
-def test_main_prints_numbers_201_to_220_to_stdout() -> None:
-    expected_lines = [str(n) for n in range(201, 221)]
+def test_main_prints_numbers_2201_to_2220_in_reverse_order_to_stdout() -> None:
+    expected_lines = [str(n) for n in range(2220, 2200, -1)]
 
     buffer = StringIO()
     with redirect_stdout(buffer):

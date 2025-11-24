@@ -1,4 +1,4 @@
-"""Print the numbers from 201 to 220 to the console."""
+"""Print the numbers from 2201 to 2220 in reverse order to the console."""
 
 def print_range(start: int, end: int) -> None:
     """Print integers from `start` to `end` inclusive, one per line."""
@@ -7,8 +7,9 @@ def print_range(start: int, end: int) -> None:
 
 
 def main() -> None:
-    """Print the numbers from 201 to 220, one per line, to stdout."""
-    print_range(201, 220)
+    """Print the numbers from 2201 to 2220 in reverse order, one per line, to stdout."""
+    for number in range(2220, 2200, -1):
+        print(number)
 
 
 if __name__ == "__main__":
