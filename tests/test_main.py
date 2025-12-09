@@ -8,14 +8,28 @@ import pytest
 import main
 
 
-def test_first_n_primes_removed_from_main_module() -> None:
-    """Ensure prime utilities were removed from main.py as part of GUIL-21."""
-    with pytest.raises(AttributeError):
-        getattr(main, "first_n_primes")
+def test_first_n_primes_exists_on_main_module() -> None:
+    """Ensure prime utilities are present on main.py as part of GUIL-29."""
+    assert hasattr(main, "first_n_primes")
+    assert callable(main.first_n_primes)
 
 
-def test_main_prints_numbers_2201_to_2220_in_reverse_order_to_stdout() -> None:
-    expected_lines = [str(n) for n in range(2220, 2200, -1)]
+@pytest.mark.parametrize(
+    ("n", "expected"),
+    [
+        (0, []),
+        (1, [2]),
+        (2, [2, 3]),
+        (5, [2, 3, 5, 7, 11]),
+        (10, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]),
+    ],
+)
+def test_first_n_primes_returns_expected_sequence(n: int, expected: list[int]) -> None:
+    assert main.first_n_primes(n) == expected
+
+
+def test_main_prints_first_20_primes_to_stdout() -> None:
+    expected_lines = [str(n) for n in main.first_n_primes(20)]
 
     buffer = StringIO()
     with redirect_stdout(buffer):
