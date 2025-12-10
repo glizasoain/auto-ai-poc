@@ -1,25 +1,91 @@
-from __future__ import annotations
-
+import io
 from contextlib import redirect_stdout
-from io import StringIO
 
 import pytest
 
 import main
 
 
-def test_first_n_primes_removed_from_main_module() -> None:
-    """Ensure prime utilities were removed from main.py as part of GUIL-21."""
-    with pytest.raises(AttributeError):
-        getattr(main, "first_n_primes")
+def test_is_prime_basic_cases():
+    # Non-primes
+    assert main.is_prime(-10) is False
+    assert main.is_prime(0) is False
+    assert main.is_prime(1) is False
+    assert main.is_prime(4) is False
+    assert main.is_prime(9) is False
+    assert main.is_prime(21) is False
+
+    # Primes
+    assert main.is_prime(2) is True
+    assert main.is_prime(3) is True
+    assert main.is_prime(5) is True
+    assert main.is_prime(7) is True
+    assert main.is_prime(19) is True
+    assert main.is_prime(97) is True
 
 
-def test_main_prints_numbers_2201_to_2220_in_reverse_order_to_stdout() -> None:
-    expected_lines = [str(n) for n in range(2220, 2200, -1)]
+def test_first_n_primes_returns_correct_sequence():
+    expected_first_20 = [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+    ]
+    assert main.first_n_primes(20) == expected_first_20
 
-    buffer = StringIO()
-    with redirect_stdout(buffer):
+
+def test_first_n_primes_zero_count():
+    assert main.first_n_primes(0) == []
+
+
+def test_first_n_primes_raises_for_negative_count():
+    with pytest.raises(ValueError):
+        main.first_n_primes(-1)
+
+
+def test_main_prints_first_20_primes_to_stdout():
+    buf = io.StringIO()
+    with redirect_stdout(buf):
         main.main()
+    output = buf.getvalue().strip().splitlines()
 
-    output = buffer.getvalue().strip().splitlines()
-    assert output == expected_lines
+    expected_first_20 = [
+        "2",
+        "3",
+        "5",
+        "7",
+        "11",
+        "13",
+        "17",
+        "19",
+        "23",
+        "29",
+        "31",
+        "37",
+        "41",
+        "43",
+        "47",
+        "53",
+        "59",
+        "61",
+        "67",
+        "71",
+    ]
+
+    assert output == expected_first_20
