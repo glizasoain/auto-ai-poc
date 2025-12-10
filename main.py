@@ -21,6 +21,9 @@ def is_prime(n: int) -> bool:
 
 def first_n_primes(count: int) -> list[int]:
     """Return a list containing the first `count` prime numbers."""
+    if count < 0:
+        raise ValueError("count must be non-negative")
+
     primes: list[int] = []
     candidate = 2
 
