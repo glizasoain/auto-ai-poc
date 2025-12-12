@@ -37,6 +37,9 @@ work_items:
 forbidden_paths:
   - "infra/**"
   - "secrets/**"
+  - "guardrails.yaml"
+  - ".cursor/rules/**"
+  - ".cursor/**"
 required_steps:
   - id: read-ticket
     description: Read the Jira ticket and acceptance criteria before coding. Mark the ticket as "In Progress" in Jira.
