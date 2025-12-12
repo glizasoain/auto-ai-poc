@@ -1,10 +1,2 @@
-
-All tests passed:
-
-- `test_first_n_primes_function_exists_and_returns_correct_primes`
-- `test_first_n_primes_with_zero_returns_empty_list`
-- `test_main_prints_first_20_primes_to_stdout`
-
-## Jira
-
-- [GUIL-35](https://your-jira-instance/browse/GUIL-35)
+git checkout -b ai/GUIL-35/change-the-existing-code-to-print-the-fi-6029cb
+pytest
